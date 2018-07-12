@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debugging</title>
+</head>
+<body>
+    
+    <div id="test">
+        
+    </div>
+    
+    <script>
+        
+        var num = 0;
+        
+        for(var i = 1 ; i < 20 ; i++){
+            num++;
+            document.getElementById('test').innerHTML = num;
+        }
+        
+        //Simple try/catch
+        //a = b; //b does not exist
+        try {
+            var a = 1;
+            var b = 2;
+            b = z;
+            if(a != b){
+                throw new Error("A does not equal B");
+            }
+        } catch (e){
+//            console.log(e);
+            if(e instanceof ReferenceError){
+               console.log(e.name + ' : ' + e.message);
+               }
+        }
+        
+        
+        //Custom Errors
+        class CustomError extends Error{
+            constructor(customParameter = 'YEEEEEEEET',...params){
+                //Invoke the base class (Error) constructor - This makes sure that our custom class has all of the default Error functionality
+                super(...params);
+                //Start creating our own custome properties
+                this.customProperty = customParameter; 
+                this.date = new Date();
+            }
+        }
+        
+        try{
+            throw new CustomError('Yeeeehaaaaaw','YEET');
+        } catch(e) {
+            console.log(e.customProperty);
+            console.log(e.message);
+            console.log(e.date);
+            console.log(e.stack);
+        }
+        
+    </script>
+    
+</body>
+</html>

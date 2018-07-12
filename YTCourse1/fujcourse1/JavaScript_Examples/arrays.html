@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            text-align: center;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <figure>
+        <img id="img" width="100%">
+        <figcaption id="imgCaptionName"></figcaption><br>
+        <figcaption id="imgCaptionVersion"></figcaption><br>
+        <figcaption id="imgCaptionDesc"></figcaption><br>
+        <figcaption id="imgCaptionCost"></figcaption>
+    </figure>
+    <script>
+        var games = [{
+            gameName: 'Rocket League',
+            version: '3.0',
+            description: 'A great game',
+            cost: '11.99',
+            imageFile:'image1.jpg'
+        }, {
+            gameName: 'Minecraft',
+            version: '1.12.2',
+            description: 'An amazing game',
+            cost: '16.99',
+            imageFile:'image2.jpg'
+        }, {
+            gameName: 'Rainbow Six Seige',
+            version: '5.0',
+            description: 'A good game',
+            cost: '11.99',
+            imageFile:'image3.jpg'
+        }, {
+            gameName: 'Player Unknown&apos;s Battlegrounds',
+            version: '4.5',
+            description: 'An alright game',
+            cost: '11.99',
+            imageFile:'image4.jpg'
+        },{
+            gameName: 'Terraria',
+            version: '9.1',
+            description: 'An awesome game',
+            cost: '7.99',
+            imageFile:'image5.jpg'
+        }];
+
+        var randomNum = Math.floor(Math.random() * games.length);
+        console.log(games[randomNum].cost);
+        document.getElementById('img').src = '../MyImages/randomNum/' + games[randomNum].imageFile;
+        document.getElementById('imgCaptionName').innerHTML = games[randomNum].gameName;
+        document.getElementById('imgCaptionVersion').innerHTML = games[randomNum].version;
+        document.getElementById('imgCaptionDesc').innerHTML = games[randomNum].description;
+        document.getElementById('imgCaptionCost').innerHTML = games[randomNum].cost;
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+YouTrain Project
+Game & Film Review System
+-Bootstrap, Bootswatch
+-Bootbox
+
+
+-datatables.net!!!!!

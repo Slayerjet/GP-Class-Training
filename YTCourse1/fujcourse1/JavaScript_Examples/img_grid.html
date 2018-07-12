@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../js/colorbox-master/example3/colorbox.css">
+    <style>
+        body {
+            text-align: center;
+        }
+        body {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="thumbs">
+        <h1>Top 5 Games</h1>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="../js/colorbox-master/jquery.colorbox-min.js"></script>
+    <script src="../js/notify.js"></script>
+
+
+    <script>
+        var games = [{
+            gameName: 'Rocket League',
+            version: '3.0',
+            description: 'A great game',
+            cost: '11.99',
+            imageFile: 'image1.jpg'
+        }, {
+            gameName: 'Minecraft',
+            version: '1.12.2',
+            description: 'An amazing game',
+            cost: '16.99',
+            imageFile: 'image2.jpg'
+        }, {
+            gameName: 'Rainbow Six Seige',
+            version: '5.0',
+            description: 'A good game',
+            cost: '11.99',
+            imageFile: 'image3.jpg'
+        }, {
+            gameName: 'Player Unknown&apos;s Battlegrounds',
+            version: '4.5',
+            description: 'An alright game',
+            cost: '11.99',
+            imageFile: 'image4.jpg'
+        }, {
+            gameName: 'Terraria',
+            version: '9.1',
+            description: 'An awesome game',
+            cost: '7.99',
+            imageFile: 'image5.jpg'
+        }];
+
+        //Loop through each game in the games array
+        for (var i = 0; i < games.length; i++) {
+            var imageFile = games[i].imageFile;
+            //           <a href="../MyImages/randomNum/image1.jpg">
+            //           <img src="../MyImages/randomNum/image1.jpg" width="100">
+            //           </a>
+
+            var a = document.createElement('a');
+            a.setAttribute('href', '../MyImages/randomNum/' + imageFile);
+            a.setAttribute('rel', 'games');
+            var img = document.createElement('img');
+            img.setAttribute('src', '../MyImages/randomNum/' + imageFile);
+            img.setAttribute('width', '100');
+            a.appendChild(img);
+            document.getElementById('thumbs').appendChild(a);
+        }
+
+        $('a[rel=games]').colorbox({width:'40%'});
+        $.notify('Click a picture to open', 'success');
+    </script>
+</body>
+</html>

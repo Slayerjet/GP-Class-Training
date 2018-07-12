@@ -1,0 +1,49 @@
+
+<!---
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+            <a class="navbar-brand" href="/project/project/index.php"><img src="/project/project/images/logo.png" width="40"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/project/project/index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/project/project/reviews.php">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/project/project/games.php">Games</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/project/project/consoles.php">Consoles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Search</a>
+                    </li>
+                    <li class="nav-item admin loggedOut">
+                        <a class="nav-link" href="/project/project/admin/admin.php">Admin</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown loggedOut" href="#" id="navbardrop" data-toggle="dropdown">
+                    My Account
+                </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item loggedOut" href="/project/project/logOut.php">Log out</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown loggedIn" href="#" id="navbardrop" data-toggle="dropdown">
+                    Sign in
+                </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item loggedIn" href="/project/project/signIn.php">Sign in</a>
+                            <a class="dropdown-item loggedIn" href="/project/project/register.php">Register</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+-->

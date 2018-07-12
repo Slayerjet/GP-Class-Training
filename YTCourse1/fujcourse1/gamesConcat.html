@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Sean Cronk Test Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="js/colorbox-master/example3/colorbox.css">
+    
+    <style>
+        /*Embedded styles are more powerful than external styles*/
+
+        p {
+            color: red;
+        }
+        body > aside{
+            min-height: 10px
+        }
+    </style>
+</head>
+
+<body>
+    <header id="mainheader" class="topheader">
+        <h1>STEAM</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html" class="icon-home">Home</a>
+                </li>
+                <li>
+                    <a href="games.html">Games</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="sales.html">Sales</a>
+                </li>
+                <li>
+                    <a href="support.html">Support</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <aside class="search">
+        
+    </aside>
+    <section class="clearfloat">
+        <h1>Games</h1>
+        <table border="1" class="gamesTable">
+           <thead>
+               <tr>
+                   <th>Game Name</th>
+                   <th>Version</th>
+                   <th>Review</th>
+                   <th>Cost</th>
+                   <th>Image</th>
+               </tr>
+           </thead>
+           <tbody>
+               
+           </tbody>
+            
+        </table>
+        
+    </section>
+    <section class="thumbs">
+    
+
+    <footer>
+    
+        &copy; Sean Cronk 2018 | <a href="tel:07867 936126">Call us: 07867 936126</a> | <a href="terms.pdf">Term &amp; Conditions</a>
+    
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="../js/colorbox-master/jquery.colorbox-min.js"></script>
+    <script src="../js/notify.js"></script>
+    <script>
+        var view = {
+            renderData: function(data){
+                var numItems = data.games.length;
+                //loop through each game and create a <tr>
+                for(var i = 0 ; i < numItems ; i++){
+                    var rowHtml = '<tr>';
+                    rowHtml += '<td>' + data.games[i].gameName + '</td>';
+                    rowHtml += '<td>' + data.games[i].version + '</td>';
+                    rowHtml += '<td>' + data.games[i].description + '</td>';
+                    rowHtml += '<td>' + data.games[i].cost + '</td>';
+                    rowHtml += '<td><a href="MyImages/randomNum/'+data.games[i].imageFile+'" rel="games"><img src="MyImages/randomNum/' + data.games[i].imageFile + '" width="100"></a>' + '</td>';
+                    rowHtml += '</tr>';
+                    $('.gamesTable tbody').append(rowHtml);
+                }
+                $('a[rel=games]').colorbox({width:'50%'});
+            }
+        }
+        
+        var communicator = {
+            getData: function(dataUrl){
+                $.ajax({
+                    url: dataUrl,
+                    type: 'get',
+                    dataType: 'json',
+                    success: function(data){
+                        view.renderData(data);},
+                    error: function(xmlHttpRequest,status,message){
+                        console.log(message);}
+                });
+            }
+        }
+        //Go get the data
+        communicator.getData('data/data.json');
+            //           <a href="../MyImages/randomNum/image1.jpg">
+            //           <img src="../MyImages/randomNum/image1.jpg" width="100">
+            //           </a>
+
+    </script>
+
+    </section>
+
+</body>
+
+</html>

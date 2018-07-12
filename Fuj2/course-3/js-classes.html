@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS-Classes</title>
+</head>
+<body>
+  <header style="background: gray; position: fixed; width: 100%;">
+      <div>
+          <h1>JS-Classes Page</h1>
+      </div>
+  </header>
+   
+   <script>
+   
+       var now = new Date();
+       
+       class Employee{
+           constructor(fname,lname,email){
+               //Define the properties of the Employee class
+               this.fname = fname;
+               this.lname = lname;
+               this.email = email;
+           }
+        
+        //Create a method of the Employee class
+        getEmployeeName(){
+           return this.fname + ' ' + this.lname;
+        }
+       }
+       
+       var emp1 = new Employee('Sean','Cronk','email@email.com')
+       
+    
+   </script>
+    
+    
+    
+</body>
+</html>

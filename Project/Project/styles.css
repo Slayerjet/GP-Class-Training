@@ -1,0 +1,187 @@
+* {
+    font-family: sans-serif;
+}
+
+/*Header*/
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fae146 !important;
+    font-weight: bold;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: white !important;
+    transition: .5s;
+}
+
+
+.bg-dark {
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #0303a6 0%, blue 50%, blue 51%, #0303a6 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0303a6), color-stop(50%, blue), color-stop(51%, blue), color-stop(100%, #0303a6));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #0303a6 0%, blue 50%, blue 51%, #0303a6 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #0303a6 0%, blue 50%, blue 51%, #0303a6 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #0303a6 0%, blue 50%, blue 51%, #0303a6 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, #0303a6 0%, blue 50%, blue 51%, #0303a6 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0303a6', endColorstr='#0303a6', GradientType=0);
+}
+
+/*End of Header*/
+
+/*Footer*/
+
+body > footer {
+    border: 2px solid #ccc;
+    padding: 10px;
+    margin: 10px auto 10px auto;
+    text-align: center;
+}
+
+/*End of Footer*/
+
+/*Big Logo*/
+
+.mainLogo {
+    margin-top: 75px;
+    padding-top: 10px;
+    text-align: center;
+    animation: spin 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.mainLogo {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+
+@keyframes spin {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+/*End of Big Logo*/
+
+/*Main Text*/
+
+.mainPage {
+    border: 2px solid #000;
+    background-color: aliceblue;
+    margin: 50px 15% 10px 15%;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.mainPageTable {
+    margin: 50px 15% 10px 15%;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.mainPageSides {
+    margin: 50px 15% 15% 15%;
+    display: block;
+    
+}
+
+.sidesTableMiddle {
+    width: 10%;
+}
+
+.sidesTableLeft {
+    padding: 10px;
+    width: 50%;
+    text-align: center;
+    border: 2px solid #000;
+    background-color: aliceblue;
+}
+
+.sidesTableRight {
+    padding: 10px;
+    width: 50%;
+    padding: 5px;
+    text-align: center;
+    border: 2px solid #000;
+    background-color: aliceblue;
+}
+
+.mainPageLeft {
+    display: block;
+    border: 2px solid #000;
+    background-color: aliceblue;
+    text-align: center;
+    width:40%;
+    display:block;
+    float: left;
+}
+
+.mainPageRight {
+    display: block;
+    border: 2px solid #000;
+    background-color: aliceblue;
+    text-align: center;
+    width:40%;
+    display:block;
+    float: right;
+    
+}
+
+
+body {
+    padding-top: 20px;
+}
+
+
+
+body > aside p {
+    text-align: center;
+}
+
+/*End of Main Text*/
+
+#addGame {
+    text-align: center !important;
+}
+
+.reviewLink {
+    color: black !important;
+}
+.reviewLink:hover {
+    color: #007bff !important;
+    text-decoration: none;
+}
+
+h3 {
+    text-align: center;
+}
+
+.personalInfo {
+    color: blue !important;
+}
+.personalInfo:hover {
+    text-decoration: underline !important;
+    cursor: pointer !important;
+}
+
+
+
+input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
+}

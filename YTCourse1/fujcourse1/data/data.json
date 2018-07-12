@@ -1,0 +1,42 @@
+{
+     "games" : [{
+            "gameName": "Rocket League",
+            "version": "3.0",
+            "description": "A great game",
+            "cost": "11.99",
+            "imageFile": "image1.jpg",
+            "productid": "001"
+        }, {
+            "gameName": "Minecraft",
+            "version": "1.12.2",
+            "description": "An amazing game",
+            "cost": "16.99",
+            "imageFile": "image2.jpg",
+            "productid": "002"
+   
+        }, {
+            "gameName": "Rainbow Six Seige",
+            "version": "5.0",
+            "description": "A good game",
+            "cost": "11.99",
+            "imageFile": "image3.jpg",
+            "productid": "003"
+   
+        }, {
+            "gameName": "Player Unknown's Battlegrounds",
+            "version": "4.5",
+            "description": "An alright game",
+            "cost": "11.99",
+            "imageFile": "image4.jpg",
+            "productid": "004"
+   
+        }, {
+            "gameName": "Terraria",
+            "version": "9.1",
+            "description": "An awesome game",
+            "cost": "07.99",
+            "imageFile": "image5.jpg",
+            "productid": "004"
+   
+        }]
+}

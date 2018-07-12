@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countdown</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+   <div>
+       <input type = "number" id="countdownValue">
+       <button type="button" id="startBtn">Start</button>
+   </div>
+    <div id="countdown"></div>
+
+    <script>
+        var countdown = {
+            start: 10,
+            int: false,
+            updateTick: function() {
+                if(countdown.start > 0){
+                    countdown.start --;
+                    document.getElementById('countdown').innerHTML = countdown.start
+                }else{
+                    countdown.finish();
+                }
+            },
+            finish: function() {
+                document.getElementById('countdown').innerHTML = 'The clocks run out, times up, over, blaow!';
+                clearInterval(countdown.int);
+            },
+            startCountdown: function(startValue) {
+                countdown.start = startValue;
+                countdown.updateTick();
+                countdown.int = setInterval(countdown.updateTick,1000);
+            }
+        }
+        document.getElementById('startBtn').addEventListener('click',function(){
+            countdown.startCountdown(document.getElementById('countdownValue').value);
+        });
+        document.addEventListener('keyup', function(event) {
+            console.log(event);
+            if(event.keyCode == 13){
+                countdown.startCountdown(document.getElementById('countdownValue').value);
+            }
+        });
+        
+        
+        
+//        document.addEventListener('keyup', function(event) {
+//            console.log(event);
+//            //Check if the key pressed was the Enter key (keyCode = 13)
+//            if(event.keyCode == 13){
+//                countdown.startCountdown(document.getElementById('countdownValue').value);
+//            }
+//        document.getElementById('startBtn').addEventListener('keyup',function(event) {
+//            console.log(event);
+//            if(event.keyCode = 13){
+//                countdown.startCountdown(document.getElementById('countdownValue').value);
+//        }
+        
+    </script>
+
+</body>
+</html>

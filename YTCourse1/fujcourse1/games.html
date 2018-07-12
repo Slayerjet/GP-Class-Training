@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Sean Cronk Test Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="js/colorbox-master/example3/colorbox.css">
+    <style>
+        /*Embedded styles are more powerful than external styles*/
+
+        p {
+            color: red;
+        }
+        body > aside{
+            min-height: 10px
+        }
+    </style>
+</head>
+
+<body>
+    <header id="mainheader" class="topheader">
+        <h1>STEAM</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html" class="icon-home">Home</a>
+                </li>
+                <li>
+                    <a href="games.html">Games</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="sales.html">Sales</a>
+                </li>
+                <li>
+                    <a href="support.html">Support</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <aside class="search">
+        
+    </aside>
+    <section class="clearfloat">
+        <h1>Games</h1>
+        <table border="1" class="gamesTable">
+           <thead>
+               <tr>
+                   <th>Game Name</th>
+                   <th>Version</th>
+                   <th>Review</th>
+                   <th>Cost</th>
+                   <th>Image</th>
+                   <th>Cart</th>
+               </tr>
+           </thead>
+           <tbody>
+               
+           </tbody>
+            
+        </table>
+        
+    </section>
+    <section class="thumbs">
+    
+
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="../js/colorbox-master/jquery.colorbox-min.js"></script>
+    <script src="../js/notify.js"></script>
+    <script>
+        //Listen for the user clicking and add to cart link - we use the on() methods to garuntee click events will be regstered on .addlinks whenever they are created
+        $('.gamesTable tbody').on('click','.addLink',function(event){
+            //stop the browser doing it is programmed to do by default
+            event.preventDefault();
+            var productId = $(this).data('productid');
+            cart.addToCart(productId);
+        });
+        
+        
+        var cart = {
+            Items:[],
+            addToCart: function(productId){
+                //check if the itme is already in cart.Items
+                var found = false;
+                for(var i=0 ; i < cart.Items.length ; i++){
+                    if(cart.Items[i]==productId){
+                        found = true;
+                        break;//stop looping
+                    }
+                }//end of for loop
+                //if(found==false){
+                if(!found){
+                    cart.Items.push(productId);
+                    //Save to localStorage for persistant storage
+                    localStorage.setItem('cartItems',JSON.stringify(cart.Items));
+                    console.log(cart.Items);
+                }else{
+                    alert('The Product has already been added to the cart')
+                }
+                
+            }
+        }
+        //Check for items already stored in localStorage
+        if(localStorage.getItem('cartItems')!=undefined){
+            cart.Items = JSON.parse(localStorage.getItem('cartItems'));
+        }
+        
+        var view = {
+            renderData: function(data){
+                var source = $('#gamesTemplate').html();
+                var template = Handlebars.compile(source);
+                var tbodyHtml = template(data);
+                $('.gamesTable tbody').html(tbodyHtml);
+                $('a[rel=games]').colorbox({width:'50%'})//colorbox
+            }//End of renderData
+        }
+        
+        var communicator = {
+            getData: function(dataUrl){
+                $.ajax({
+                    url: dataUrl,
+                    type: 'get',
+                    dataType: 'json',
+                    success: function(data){
+                        view.renderData(data);},
+                    error: function(xmlHttpRequest,status,message){
+                        console.log(message);}
+                });
+            }
+        }
+        //Go get the data
+        communicator.getData('data/data.json');
+            //           <a href="../MyImages/randomNum/image1.jpg">
+            //           <img src="../MyImages/randomNum/image1.jpg" width="100">
+            //           </a>
+
+    </script>
+    
+<!--    The next script tag is a Handlebars template-->
+    <script type="text/x-handlebars-template" id="gamesTemplate">
+        {{#each games}}
+            <tr>
+                <td>{{gameName}}</td>
+                <td>{{version}}</td>
+                <td>{{description}}</td>
+                <td>{{cost}}</td>
+                <td><a href="MyImages/randomNum/{{imageFile}}" rel="games"><img width="100" src="MyImages/randomNum/{{imageFile}}"></a></td>
+                <td><a href="#" class="addLink" data-productid="{{productid}}">Add to Cart</a></td>
+            </tr>
+        {{/each}}
+    </script>
+
+    </section>
+    <footer>
+    
+        &copy; Sean Cronk 2018 | <a href="tel:07867 936126">Call us: 07867 936126</a> | <a href="terms.pdf">Term &amp; Conditions</a>
+    
+    </footer>
+
+</body>
+
+</html>
+
+
+
+

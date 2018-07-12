@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+
+<body>
+
+    <button type="button" id="getProductsBtn">Get Products</button>
+
+    <div>
+
+        <table id="productsTable">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity in Stock</th>
+                    <th>MSRP</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#getProductsBtn').click(function() {
+                getProducts();
+            });
+        });
+
+        function getProducts() {
+            $.ajax({
+                url: 'index.php',
+                type: 'get',
+                dataType: 'json',
+                success: function(data) {
+                    renderProducts(data);
+                },
+                error: function(x, s, m) {
+                    console.log(m)
+                }
+            });
+        }
+
+        function renderProducts(data) {
+            
+            //Clear any current data
+            
+            $('#productsTable tbody').html('');
+            
+            var numProducts = data.length;
+            //            console.log(numProducts);
+            for (var i = 0; i < numProducts; i++) {
+                var rowHTML = '<tr>';
+                rowHTML += '<td>' + data[i].productName + '</td>';
+                rowHTML += '<td>' + data[i].quantityInStock + '</td>';
+                rowHTML += '<td>' + data[i].MSRP + '</td>';
+                rowHTML += '</tr>';
+                $('#productsTable tbody').append(rowHTML);
+            }
+//            $('#productsTable').DataTable();
+            $('#productsTable').dataTable().fnDestroy();
+            $('#productsTable').dataTable();
+        }
+        
+        
+
+    </script>
+
+</body>
+
+</html>

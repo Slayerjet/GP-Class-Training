@@ -1,0 +1,285 @@
+/*Normalise the default CSS settings in the browser*/
+
+@import url(assets/reset.css);
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P|Share+Tech+Mono');
+@import url(fonts/fontello-1fd396a2/css/fontello.css);
+@import url(fonts/fontello-1fd396a2/css/animation.css);
+
+/*
+Selector specificity values
+
+Element selector (eg p) -1
+Class selector (eg .topheader) -10
+ID selector (eg #mainheader) -100
+*/
+
+body {
+    font-family: 'Press Start 2P', cursive;
+}
+
+p {
+    color: #ff2600;
+}
+
+.topheader {
+    /*    border:5px solid red;*/
+}
+
+#mainheader {
+    /*    border:3px solid green;*/
+}
+
+/*descendant selector*/
+
+body > header,
+body > aside,
+body > section,
+body > footer {
+    border: 2px solid #ccc;
+    padding: 10px;
+    margin: 10px auto 10px auto;
+    /*  max-width: 960px;*/
+    border-radius: 5px;
+}
+
+body > header {
+    height: 300px;
+    background: url(MyImages/Steam_Logo.jpg);
+    background-size: contain;
+    background-position: center;
+    position: relative;
+    font-family: 'Rammetto One', cursive;
+}
+
+body > header h1 {
+    font-size: 4em;
+    color: #fff;
+    text-shadow: 4px 4px 4px #F00;
+}
+
+
+section > h1 {
+    font-size: 3em;
+    color: #fff;
+    text-align: center;
+    background-color: #000;
+    margin-bottom: 10px;
+    text-shadow: 4px 4px 4px #F00;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+body > header nav li {
+    /*Convert list items to inline elements to they sit horisontally. By default most HTML elements are displayed as block elements*/
+    display: inline;
+}
+
+body > header nav a {
+    background: #aebcbf;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #aebcbf 0%, #6e7774 50%, #0a0e0a 51%, #0a0809 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #aebcbf), color-stop(50%, #6e7774), color-stop(51%, #0a0e0a), color-stop(100%, #0a0809));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #aebcbf 0%, #6e7774 50%, #0a0e0a 51%, #0a0809 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #aebcbf 0%, #6e7774 50%, #0a0e0a 51%, #0a0809 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #aebcbf 0%, #6e7774 50%, #0a0e0a 51%, #0a0809 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, #aebcbf 0%, #6e7774 50%, #0a0e0a 51%, #0a0809 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aebcbf', endColorstr='#0a0809', GradientType=0);
+    /* IE6-9 */
+    color: white;
+    padding: 7px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+body > header nav a:hover {
+    background: white;
+    color: black;
+    transition: background 0.5s;
+}
+
+body > header nav {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    /*  background: rgba(255,255,255,0.5);*/
+    padding: 20px;
+}
+
+.floatright {
+    float: right;
+}
+
+figure {
+    border: 1px solid black;
+}
+
+figcaption {
+    background: black;
+    color: white;
+    padding: 5px 0;
+    text-align: center;
+}
+
+body
+/*class to clear floated elements*/
+
+./clearfloat {
+    clear: both;
+}
+
+.fadeandspin {
+    animation: fadein 5s, spin 5s;
+    animation-delay: 0s, 0s;
+}
+
+/*CSS Animations*/
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+body > section article {
+    margin: 20px 0;
+
+}
+
+.content {
+    column-count: 3;
+}
+
+/*CSS Media queeries*/
+
+@media only screen and (max-device-width:600px) {
+    .content {
+        column-count: 1;
+    }
+}
+
+/*Attribute selector used to target all links pointing to PDF files*/
+
+a[href$=pdf] {
+    background: url(assets/pdf.png) no-repeat right;
+    padding-right: 20px;
+}
+
+footer {
+    text-align: center;
+    background-color: #ccc;
+}
+
+
+/*Form Styling*/
+
+label {
+    display: block;
+}
+
+.horizontal label {
+    display: inline;
+}
+
+form > ul > li {
+    margin: 15px 0;
+}
+
+form {
+    text-align: center;
+}
+
+input[type=text],
+input[type=email],
+input[type=date],
+select {
+    height 25px;
+    width: 400px;
+}
+
+textarea {
+    height: 70px;
+    width: 400px;
+}
+
+input:required ,textarea:required{
+    background: url(form_demo/images/red_asterisk.png) no-repeat top right;
+}
+
+input:required:valid ,textarea:required:valid{
+    background: url(form_demo/images/valid.png) no-repeat top right;
+}
+
+input:focus:invalid ,textarea:focus:invalid{
+    background: url(form_demo/images/invalid.png) no-repeat top right;
+}
+
+/*table styling*/
+
+th,td{
+    padding: 7px;
+    vertical-align: top;
+    text-align: center;
+}
+
+table{
+    width: 100%;
+}
+
+th{
+    background: #f60;
+    color:white;
+}
+
+tbody tr:nth-child(even){
+    background: #efefef
+}
+
+.gamesTable > tbody td:nth-child(4):before{
+    content: "£";
+}
+
+#thumbs img {
+    margin: 20px;
+    opacity: 0.5;
+}
+
+#thumbs img:hover{
+    opacity: 1;
+    
+    transition: 0.5s;
+}
+
+article header.clickable {
+    cursor: pointer;
+    color: black;
+}
+
+article header.clickable:hover{
+    color: red;
+}
+
+.gamesTable tr:hover {
+    color: red;
+}
